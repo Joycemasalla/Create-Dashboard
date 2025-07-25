@@ -7,34 +7,40 @@
     --warning-color: #F59E0B; /* Laranja */
     --info-color: #6366F1; /* Índigo */
 
-    /* Tema Claro - Ajustado para melhor contraste */
-    --light-bg: #F9FAFB; /* Fundo muito levemente cinza */
+    /* Tema Claro - Ajustado para melhor contraste e suavidade */
+    --light-bg: #EAF0F6; /* Fundo cinza muito claro, mais perceptível */
     --light-text: #1F2937; /* Texto cinza escuro */
     --light-card-bg: #FFFFFF; /* Fundo de card branco puro */
-    --light-border: #E5E7EB; /* Borda cinza claro */
-    --light-shadow: rgba(0, 0, 0, 0.05); /* Sombra suave */
+    --light-border: #D1D9E0; /* Borda cinza claro mais visível */
+    --light-shadow: rgba(0, 0, 0, 0.12); /* Sombra suave, mais visível */
 
     /* Tema Escuro - Cores profundas */
-    --dark-bg: #1F2937; /* Fundo cinza escuro */
-    --dark-text: #F9FAFB; /* Texto muito levemente cinza */
-    --dark-card-bg: #374151; /* Fundo de card cinza mais escuro */
-    --dark-border: #4B5563; /* Borda cinza médio */
-    --dark-shadow: rgba(0, 0, 0, 0.5); /* Sombra mais forte */
+    --dark-bg: #1A202C; /* Fundo cinza-azulado muito escuro */
+    --dark-text: #E2E8F0; /* Texto cinza claro */
+    --dark-card-bg: #2D3748; /* Fundo de card cinza mais escuro */
+    --dark-border: #4A5568; /* Borda cinza médio */
+    --dark-shadow: rgba(0, 0, 0, 0.6); /* Sombra mais forte */
 
-    /* Cores dos Gráficos Específicas por Tema - Paleta Profissional */
-    /* Light Theme Chart Colors */
-    --chart-color-1-light: #3B82F6;
-    --chart-color-2-light: #10B981;
-    --chart-color-3-light: #F59E0B;
-    --chart-color-4-light: #EF4444;
-    --chart-color-5-light: #8B5CF6;
+    /* Cores dos Gráficos Específicas por Tema - Paleta Profissional e Suave */
+    /* Light Theme Chart Colors (Pastel/Suave) */
+    --chart-color-1-light: #7CB9E8; /* Azul céu suave */
+    --chart-color-2-light: #A7D9B5; /* Verde menta */
+    --chart-color-3-light: #FFDDA6; /* Amarelo pêssego */
+    --chart-color-4-light: #FFABAB; /* Rosa claro */
+    --chart-color-5-light: #C3B1E1; /* Lavanda */
+    --chart-color-6-light: #ADE7F0; /* Azul água */
+    --chart-color-7-light: #F0A58A; /* Coral suave */
+    --chart-color-8-light: #D4BBDD; /* Lilás */
 
-    /* Dark Theme Chart Colors */
-    --chart-color-1-dark: #6366F1; /* Índigo */
-    --chart-color-2-dark: #34D399; /* Verde-água */
-    --chart-color-3-dark: #FBBF24; /* Amarelo-laranja */
-    --chart-color-4-dark: #F87171; /* Vermelho claro */
-    --chart-color-5-dark: #A78BFA; /* Roxo claro */
+    /* Dark Theme Chart Colors (Vibrantes, mas que contrastam bem no escuro) */
+    --chart-color-1-dark: #81A2FF; /* Azul médio */
+    --chart-color-2-dark: #6BE8B2; /* Verde esmeralda */
+    --chart-color-3-dark: #FFC94A; /* Amarelo ouro */
+    --chart-color-4-dark: #FF8D8D; /* Vermelho suave */
+    --chart-color-5-dark: #B39DF5; /* Roxo vibrante */
+    --chart-color-6-dark: #6DEFFB; /* Ciano claro */
+    --chart-color-7-dark: #FFA37B; /* Laranja forte */
+    --chart-color-8-dark: #E1BEE7; /* Magenta claro */
 
     --chart-text-color: var(--text-color);
 }
@@ -155,6 +161,10 @@ button {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    display: flex; /* Para alinhar ícones e texto */
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre ícone e texto */
 }
 
 button:hover {
@@ -251,60 +261,89 @@ header {
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 8px var(--shadow-color);
     color: var(--text-color);
+    flex-wrap: wrap; /* Garante que o header se adapte em telas menores */
+    gap: 15px;
 }
 
-.header-left, .header-right, .header-center {
+.header-left {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-wrap: wrap; /* Adicionado para responsividade no header */
 }
 
-.logo {
-    font-size: 1.8em;
-    font-weight: bold;
+.header-left .logo {
+    font-size: 2.2em; /* Tamanho maior para o ícone */
     color: var(--primary-color);
+    display: flex;
+    align-items: center;
 }
 
 #app-name {
-    font-size: 1.2em;
-    font-weight: 500;
+    font-size: 1.5em; /* Título maior */
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 2px; /* Espaço entre título e subtítulo */
+}
+
+.app-subtitle {
+    font-size: 0.85em; /* Subtítulo menor */
+    color: var(--secondary-color);
+    margin-top: 0;
+}
+
+.header-center {
+    flex-grow: 1; /* Ocupa o espaço central */
+    text-align: center;
 }
 
 #dashboard-title {
-    font-size: 1.5em;
+    font-size: 1.6em; /* Título do dashboard maior */
     font-weight: 600;
     color: var(--primary-color);
 }
 
-.template-selector label,
-.theme-selector button,
-#current-date,
-#logged-user {
-    font-size: 0.9em;
+.header-right {
+    display: flex;
+    align-items: center;
+    /* Ajuste para o espaçamento do botão de tema */
+    gap: 20px; /* Aumenta o gap entre os elementos no header-right */
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Alinha à direita em telas maiores */
+}
+
+.theme-selector {
+    display: flex;
+    gap: 10px; /* Espaço entre os botões de tema */
 }
 
 .theme-selector button {
     padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: 20px; /* Bordas mais arredondadas */
     background-color: var(--secondary-color);
     color: white;
     font-weight: 500;
+    font-size: 0.9em;
 }
 .theme-selector button:hover {
     background-color: #5a6268;
 }
 
+#current-date,
+#logged-user {
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
 /* Dashboard Container */
 #dashboard-container {
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 280px 1fr; /* Largura da sidebar ligeiramente maior */
     grid-template-rows: auto 1fr;
     gap: 20px;
     padding: 20px;
-    flex-grow: 1;
     background-color: var(--bg-color);
     color: var(--text-color);
+    flex-grow: 1;
 }
 
 /* Sidebar */
@@ -316,13 +355,26 @@ header {
     box-shadow: 0 4px 15px var(--shadow-color);
     overflow-y: auto;
     border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar h3 {
     color: var(--primary-color);
     margin-bottom: 20px;
-    font-size: 1.2em;
+    font-size: 1.3em;
     text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#sidebar-filter-area {
+    flex-grow: 1;
+    margin-bottom: 20px;
 }
 
 .filter-group {
@@ -339,50 +391,62 @@ header {
 
 .filter-group select {
     width: 100%;
-    padding: 8px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 8px;
     border: 1px solid var(--border-color);
     background-color: var(--bg-color);
     color: var(--text-color);
     font-size: 0.9em;
-    appearance: none; /* Remove estilo padrão do sistema operacional */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292%22%20height%3D%22292%22%3E%3Cpath%20fill%3D%22%236B7280%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-6.4H18.2c-4.9%200-9.4%201.8-13.2%206.4s-6.4%209.4-6.4%2013.2c0%204.9%201.8%209.4%206.4%2013.2L140%20227.6c3.8%203.8%208.3%205.6%2013.2%205.6s9.4-1.8%2013.2-5.6L287%2096c3.8-3.8%205.6-8.3%205.6-13.2%200-4.9-1.8-9.4-5.6-13.2z%22%2F%3E%3C%2Fsvg%3E'); /* Seta customizada */
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292%22%20height%3D%22292%22%3E%3Cpath%20fill%3D%22%236B7280%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-6.4H18.2c-4.9%200-9.4%201.8-13.2%206.4s-6.4%209.4-6.4%2013.2c0%204.9%201.8%209.4%206.4%2013.2L140%20227.6c3.8%203.8%208.3%205.6%2013.2%205.6s9.4-1.8%2013.2-5.6L287%2096c3.8-3.8%205.6-8.3%205.6-13.2%200-4.9-1.8-9.4-5.6-13.2z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
-    background-position: right 8px center;
+    background-position: right 10px center;
     background-size: 12px;
+}
+
+.clear-filters-button {
+    width: 100%;
+    background-color: var(--danger-color);
+    padding: 12px 25px;
+    border-radius: 8px;
+}
+
+.clear-filters-button:hover {
+    background-color: #C53030;
 }
 
 /* Área de KPI Principal (grande) */
 #kpi-quantidade {
-    grid-column: 1 / -1; /* Ocupa toda a largura */
+    grid-column: 2 / 3;
     background-color: var(--card-bg);
     border-radius: 10px;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    display: flex; /* Garante que o flex seja aplicado aqui */
+    box-shadow: 0 6px 20px var(--shadow-color);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 120px;
+    min-height: 140px;
     margin-bottom: 20px;
     border: 1px solid var(--border-color);
 }
 
 #kpi-quantidade h4 {
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: var(--secondary-color);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 #kpi-quantidade p {
-    font-size: 2.2em;
+    font-size: 2.8em;
     font-weight: bold;
     color: var(--success-color);
 }
 
 /* Área de KPIs menores */
 #kpi-area-main {
+    grid-column: 2 / 3;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
@@ -392,76 +456,81 @@ header {
 .kpi-card {
     background-color: var(--card-bg);
     border-radius: 10px;
-    padding: 15px;
+    padding: 18px;
     text-align: center;
-    box-shadow: 0 4px 10px var(--shadow-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100px;
+    min-height: 110px;
     border: 1px solid var(--border-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--shadow-color);
 }
 
 .kpi-card h4 {
-    font-size: 0.9em;
+    font-size: 1em;
     color: var(--secondary-color);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .kpi-card p {
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: bold;
-    color: var(--primary-color); /* Pode ser sobrescrito pelo inline style do JS */
+    color: var(--primary-color);
 }
 
 /* Área de Gráficos (Container pai) */
 .chart-grid {
-    grid-column: 2 / 3; /* No layout de grid principal */
+    grid-column: 2 / 3;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
 }
 
 .chart-container {
     background-color: var(--card-bg);
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 10px var(--shadow-color);
+    padding: 25px;
+    box-shadow: 0 4px 15px var(--shadow-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 350px; /* Altura mínima para os gráficos */
+    min-height: 380px;
     border: 1px solid var(--border-color);
-    cursor: pointer; /* Indica que o gráfico é clicável */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Animação de hover */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .chart-container:hover {
-    transform: translateY(-5px); /* Efeito de elevação no hover */
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px var(--shadow-color);
 }
 
-
 .chart-container h3 {
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 .chart-container canvas {
-    max-height: 300px; /* Controla a altura do canvas */
-    width: 100% !important; /* Garante que o canvas ocupe a largura total */
+    max-height: 300px;
+    width: 100% !important;
     height: 100% !important;
 }
 
 /* Banner de alerta */
 .alert-banner {
-    grid-column: 1 / -1; /* Ocupa toda a largura */
-    background-color: #FEF3C7; /* Amarelo claro */
-    color: #92400E; /* Texto marrom escuro */
+    grid-column: 1 / -1;
+    background-color: #FEF3C7;
+    color: #92400E;
     padding: 12px 20px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -473,7 +542,7 @@ header {
 /* Responsividade */
 @media (max-width: 992px) {
     #dashboard-container {
-        grid-template-columns: 1fr; /* Coluna única em telas menores */
+        grid-template-columns: 1fr;
         grid-template-rows: auto auto 1fr;
     }
 
@@ -481,10 +550,12 @@ header {
         grid-row: auto;
     }
 
+    #kpi-quantidade,
+    #kpi-area-main,
     .chart-grid {
-        grid-column: auto;
+        grid-column: 1 / -1;
     }
-
+    
     header {
         flex-direction: column;
         gap: 10px;
@@ -494,10 +565,16 @@ header {
     .header-left, .header-right, .header-center {
         flex-direction: column;
         gap: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .header-right {
+        justify-content: center;
     }
 
     .upload-card, .uploaded-sheets-area {
-        max-width: 90%; /* Ajuste a largura para telas menores */
+        max-width: 90%;
     }
 }
 
@@ -531,5 +608,10 @@ header {
 
     .chart-container h3 {
         font-size: 1em;
+    }
+
+    .theme-selector button {
+        padding: 6px 10px;
+        font-size: 0.8em;
     }
 }

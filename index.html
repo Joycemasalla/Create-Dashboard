@@ -7,22 +7,23 @@
     <title>Gerador de Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <div class="app-container">
         <header>
             <div class="header-left">
-                <div class="logo">D</div>
-                <h2 id="app-name">Dashboard Fácil</h2>
+                <div class="logo"><i class="fas fa-chart-bar"></i></div> <div>
+                    <h2 id="app-name">Dashboard Pro</h2> <p class="app-subtitle">Análise inteligente de dados</p> </div>
             </div>
             <div class="header-center">
                 <h2 id="dashboard-title">Dashboard Dinâmico</h2>
             </div>
             <div class="header-right">
                 <div class="theme-selector">
-                    <button id="theme-light-button">☀️ Light</button>
-                    <button id="theme-dark-button">🌙 Dark</button>
+                    <button id="theme-light-button"><i class="fas fa-sun"></i> Light</button>
+                    <button id="theme-dark-button"><i class="fas fa-moon"></i> Dark</button>
                 </div>
                 <span id="current-date"></span>
                 <span> | </span>
@@ -48,9 +49,9 @@
 
             <section id="dashboard-container">
                 <aside class="sidebar">
-                    <h3>Filtros</h3>
-                    <div id="sidebar-filter-area">
+                    <h3><i class="fas fa-filter"></i> Filtros</h3> <div id="sidebar-filter-area">
                         </div>
+                    <button id="clear-filters-button" class="clear-filters-button"><i class="fas fa-redo-alt"></i> Limpar Filtros</button>
                 </aside>
 
                 <section class="main-content">

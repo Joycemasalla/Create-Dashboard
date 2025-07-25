@@ -23,14 +23,42 @@ app.post('/api/analyze-data', upload.single('spreadsheet'), (req, res) => {
         }
 
         const file = req.file;
-        const workbook = xlsx.read(file.buffer, {
-            type: 'buffer'
-        });
+        let workbook;
+
+        // Detecta o tipo de arquivo pela extensão ou MIME type
+        const fileName = file.originalname || '';
+        const fileExtension = fileName.split('.').pop().toLowerCase();
+
+        if (fileExtension === 'csv' || file.mimetype === 'text/csv') {
+            // Para CSV, o xlsx.read espera uma string
+            const csvString = file.buffer.toString('utf8');
+            workbook = xlsx.read(csvString, {
+                type: 'string'
+            });
+        } else if (['xlsx', 'xls'].includes(fileExtension) || file.mimetype === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.mimetype === 'application/vnd.ms-excel') {
+            // Para Excel, o xlsx.read espera um buffer
+            workbook = xlsx.read(file.buffer, {
+                type: 'buffer'
+            });
+        } else {
+            return res.status(400).json({
+                error: 'Formato de arquivo não suportado. Por favor, envie um arquivo Excel (.xlsx, .xls) ou CSV (.csv).'
+            });
+        }
+
+
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const jsonData = xlsx.utils.sheet_to_json(worksheet, {
             header: 1
         });
+
+        // Verifica se há dados além dos cabeçalhos
+        if (jsonData.length < 1 || (jsonData.length === 1 && jsonData[0].every(cell => cell === null || cell === ''))) {
+            return res.status(400).json({
+                error: 'A planilha está vazia ou não contém dados válidos.'
+            });
+        }
 
         const headers = jsonData[0];
         const rows = jsonData.slice(1);

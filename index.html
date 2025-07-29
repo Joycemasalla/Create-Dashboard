@@ -4,18 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Dashboard</title>
+    <title>EasyBoard - Dashboard fácil de montar</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="app-container">
         <header>
             <div class="header-left">
-                <div class="logo"><i class="fas fa-chart-bar"></i></div> <div>
-                    <h2 id="app-name">Dashboard Pro</h2> <p class="app-subtitle">Análise inteligente de dados</p> </div>
+                <div class="logo"><i class="fas fa-chart-bar"></i></div>
+                <div>
+                    <h2 id="app-name">EasyBoard</h2>
+                    <p class="app-subtitle">Dashboard fácil de montar</p>
+                </div>
             </div>
             <div class="header-center">
                 <h2 id="dashboard-title">Dashboard Dinâmico</h2>
@@ -37,21 +40,23 @@
                     <h1>Crie seu Dashboard a partir de uma Planilha</h1>
                     <p>Envie sua planilha Excel (.xlsx, .xls) ou CSV (.csv) e visualize seus dados instantaneamente!</p>
                     <input type="file" id="file-input" accept=".xlsx, .xls, .csv">
-                    <button id="upload-button">Gerar Dashboard</button>
-                </div>
-                <div id="uploaded-sheets-area" class="uploaded-sheets-area" style="display: none;">
-                    <h3>Planilhas Carregadas</h3>
-                    <ul id="uploaded-sheets-list">
-                        </ul>
-                    <button id="new-sheet-button" class="new-sheet-button">Nova Planilha</button>
+                    <button id="upload-button"><i class="fas fa-upload"></i> Gerar Dashboard</button>
                 </div>
             </section>
 
             <section id="dashboard-container">
                 <aside class="sidebar">
-                    <h3><i class="fas fa-filter"></i> Filtros</h3> <div id="sidebar-filter-area">
-                        </div>
+                    <h3><i class="fas fa-filter"></i> Filtros</h3>
+                    <div id="sidebar-filter-area">
+                    </div>
                     <button id="clear-filters-button" class="clear-filters-button"><i class="fas fa-redo-alt"></i> Limpar Filtros</button>
+
+                    <div id="uploaded-sheets-area" class="uploaded-sheets-area" style="display: none;">
+                        <h3><i class="fas fa-file-excel"></i> Planilhas</h3>
+                        <ul id="uploaded-sheets-list">
+                        </ul>
+                        <button id="new-sheet-button" class="new-sheet-button"><i class="fas fa-plus-circle"></i> Nova Planilha</button>
+                    </div>
                 </aside>
 
                 <section class="main-content">
@@ -59,18 +64,21 @@
                         Os dados abaixo são apenas exemplos. Os gráficos reais serão gerados com base na planilha que você carregar.
                     </div>
 
+                    <div id="insight-widgets-container" class="insight-widgets-container"></div>
+
                     <div id="kpi-quantidade"></div>
 
                     <div id="kpi-area-main"></div>
                     
                     <div class="chart-grid" id="chart-grid-container">
-                        </div>
+                    </div>
                 </section>
             </section>
         </main>
     </div>
 
     <script src="script.js" defer></script>
+    <script src="charts.js" defer></script> 
 </body>
 
 </html>

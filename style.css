@@ -22,25 +22,25 @@
     --dark-shadow: rgba(0, 0, 0, 0.6); /* Sombra mais forte */
 
     /* Cores dos Gráficos Específicas por Tema - Paleta Profissional e Suave */
-    /* Light Theme Chart Colors (Pastel/Suave) */
-    --chart-color-1-light: #7CB9E8; /* Azul céu suave */
-    --chart-color-2-light: #A7D9B5; /* Verde menta */
-    --chart-color-3-light: #FFDDA6; /* Amarelo pêssego */
-    --chart-color-4-light: #FFABAB; /* Rosa claro */
-    --chart-color-5-light: #C3B1E1; /* Lavanda */
-    --chart-color-6-light: #ADE7F0; /* Azul água */
-    --chart-color-7-light: #F0A58A; /* Coral suave */
-    --chart-color-8-light: #D4BBDD; /* Lilás */
+    /* Light Theme Chart Colors (Pastel/Suave) - tons mais harmônicos */
+    --chart-color-1-light: #6A9CFF; /* Azul suave */
+    --chart-color-2-light: #52D1A1; /* Verde jade */
+    --chart-color-3-light: #FFC073; /* Laranja pastel */
+    --chart-color-4-light: #E094FF; /* Roxo suave */
+    --chart-color-5-light: #FF8F9C; /* Rosa coral */
+    --chart-color-6-light: #8AEEFF; /* Ciano claro */
+    --chart-color-7-light: #FF9E6F; /* Laranja queimado */
+    --chart-color-8-light: #C08DED; /* Lavanda mais vibrante */
 
-    /* Dark Theme Chart Colors (Vibrantes, mas que contrastam bem no escuro) */
-    --chart-color-1-dark: #81A2FF; /* Azul médio */
-    --chart-color-2-dark: #6BE8B2; /* Verde esmeralda */
-    --chart-color-3-dark: #FFC94A; /* Amarelo ouro */
-    --chart-color-4-dark: #FF8D8D; /* Vermelho suave */
-    --chart-color-5-dark: #B39DF5; /* Roxo vibrante */
-    --chart-color-6-dark: #6DEFFB; /* Ciano claro */
-    --chart-color-7-dark: #FFA37B; /* Laranja forte */
-    --chart-color-8-dark: #E1BEE7; /* Magenta claro */
+    /* Dark Theme Chart Colors (Vibrantes, que contrastam bem no escuro) - tons mais harmônicos */
+    --chart-color-1-dark: #6D92FF; /* Azul mais vibrante */
+    --chart-color-2-dark: #4ECDC4; /* Verde água */
+    --chart-color-3-dark: #FFBF80; /* Laranja mais forte */
+    --chart-color-4-dark: #BE80FF; /* Roxo vibrante */
+    --chart-color-5-dark: #FF7B8D; /* Vermelho suave */
+    --chart-color-6-dark: #5BDDFE; /* Azul celeste */
+    --chart-color-7-dark: #FF8A50; /* Laranja intenso */
+    --chart-color-8-dark: #A56EFF; /* Roxo profundo */
 
     --chart-text-color: var(--text-color);
 }
@@ -72,8 +72,8 @@ body.theme-dark {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 body {
@@ -113,7 +113,6 @@ body {
     align-items: center;
     max-width: 500px;
     width: 100%;
-    margin-bottom: 20px; /* Espaço entre o card de upload e a área de planilhas carregadas */
 }
 
 .upload-section h1 {
@@ -165,6 +164,7 @@ button {
     align-items: center;
     justify-content: center;
     gap: 8px; /* Espaço entre ícone e texto */
+    text-align: center; /* Centraliza o texto em botões maiores */
 }
 
 button:hover {
@@ -176,14 +176,13 @@ button:active {
     transform: translateY(0);
 }
 
-/* Área de Planilhas Carregadas */
+/* Área de Planilhas Carregadas (Estilizada para a Sidebar) */
 .uploaded-sheets-area {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 5px 15px var(--shadow-color);
-    max-width: 500px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 20px;
     width: 100%;
     text-align: left;
 }
@@ -192,16 +191,24 @@ button:active {
     color: var(--primary-color);
     margin-bottom: 15px;
     text-align: center;
+    font-size: 1.3em;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 #uploaded-sheets-list {
     list-style: none;
     padding: 0;
     margin-bottom: 15px;
-    max-height: 200px; /* Limita a altura e adiciona scroll se necessário */
+    max-height: 200px;
     overflow-y: auto;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Borda da lista para agrupamento visual */
     border-radius: 8px;
+    background-color: var(--bg-color); /* Fundo da lista, não do card */
 }
 
 #uploaded-sheets-list li {
@@ -219,7 +226,7 @@ button:active {
 }
 
 #uploaded-sheets-list li:hover {
-    background-color: var(--bg-color);
+    background-color: var(--bg-color); /* Usa a cor de fundo geral para hover */
 }
 
 #uploaded-sheets-list li.active-sheet {
@@ -245,10 +252,11 @@ button:active {
 .new-sheet-button {
     width: 100%;
     padding: 10px;
-    background-color: var(--info-color); /* Uma cor diferente para 'Nova Planilha' */
+    background-color: var(--info-color);
+    margin-top: 10px;
 }
 .new-sheet-button:hover {
-    background-color: #4F46E5; /* Tom mais escuro de info-color */
+    background-color: #4F46E5;
 }
 
 /* Header */
@@ -261,7 +269,7 @@ header {
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 8px var(--shadow-color);
     color: var(--text-color);
-    flex-wrap: wrap; /* Garante que o header se adapte em telas menores */
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -272,32 +280,32 @@ header {
 }
 
 .header-left .logo {
-    font-size: 2.2em; /* Tamanho maior para o ícone */
+    font-size: 2.2em;
     color: var(--primary-color);
     display: flex;
     align-items: center;
 }
 
 #app-name {
-    font-size: 1.5em; /* Título maior */
+    font-size: 1.5em;
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 2px; /* Espaço entre título e subtítulo */
+    margin-bottom: 2px;
 }
 
 .app-subtitle {
-    font-size: 0.85em; /* Subtítulo menor */
+    font-size: 0.85em;
     color: var(--secondary-color);
     margin-top: 0;
 }
 
 .header-center {
-    flex-grow: 1; /* Ocupa o espaço central */
+    flex-grow: 1;
     text-align: center;
 }
 
 #dashboard-title {
-    font-size: 1.6em; /* Título do dashboard maior */
+    font-size: 1.6em;
     font-weight: 600;
     color: var(--primary-color);
 }
@@ -305,20 +313,19 @@ header {
 .header-right {
     display: flex;
     align-items: center;
-    /* Ajuste para o espaçamento do botão de tema */
-    gap: 20px; /* Aumenta o gap entre os elementos no header-right */
+    gap: 20px;
     flex-wrap: wrap;
-    justify-content: flex-end; /* Alinha à direita em telas maiores */
+    justify-content: flex-end;
 }
 
 .theme-selector {
     display: flex;
-    gap: 10px; /* Espaço entre os botões de tema */
+    gap: 10px;
 }
 
 .theme-selector button {
     padding: 8px 12px;
-    border-radius: 20px; /* Bordas mais arredondadas */
+    border-radius: 20px;
     background-color: var(--secondary-color);
     color: white;
     font-weight: 500;
@@ -337,7 +344,7 @@ header {
 /* Dashboard Container */
 #dashboard-container {
     display: grid;
-    grid-template-columns: 280px 1fr; /* Largura da sidebar ligeiramente maior */
+    grid-template-columns: 280px 1fr;
     grid-template-rows: auto 1fr;
     gap: 20px;
     padding: 20px;
@@ -372,9 +379,19 @@ header {
     gap: 10px;
 }
 
+.sidebar > h3:first-of-type {
+    margin-top: 0;
+}
+.sidebar .uploaded-sheets-area h3 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+
 #sidebar-filter-area {
-    flex-grow: 1;
     margin-bottom: 20px;
+    padding-bottom: 15px; 
+    border-bottom: 1px solid var(--border-color); 
 }
 
 .filter-group {
@@ -409,6 +426,8 @@ header {
     background-color: var(--danger-color);
     padding: 12px 25px;
     border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 20px; 
 }
 
 .clear-filters-button:hover {
@@ -442,6 +461,10 @@ header {
     font-size: 2.8em;
     font-weight: bold;
     color: var(--success-color);
+    word-break: break-word;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Área de KPIs menores */
@@ -466,6 +489,7 @@ header {
     min-height: 110px;
     border: 1px solid var(--border-color);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer; /* Torna o card clicável */
 }
 
 .kpi-card:hover {
@@ -483,7 +507,23 @@ header {
     font-size: 1.8em;
     font-weight: bold;
     color: var(--primary-color);
+    word-break: break-word;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+/* Ícones SVG nos KPI Cards */
+.kpi-card .kpi-icon {
+    font-size: 1.5em; /* Tamanho do ícone */
+    margin-bottom: 8px; /* Espaçamento entre ícone e título */
+    color: var(--primary-color); /* Cor do ícone */
+}
+#kpi-quantidade .kpi-icon {
+    font-size: 2em; /* Ícone maior para o KPI principal */
+    color: var(--success-color);
+}
+
 
 /* Área de Gráficos (Container pai) */
 .chart-grid {
@@ -501,11 +541,12 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 380px;
     border: 1px solid var(--border-color);
     cursor: pointer;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    position: relative; /* Para posicionar o tooltip icon */
 }
 
 .chart-container:hover {
@@ -518,12 +559,63 @@ header {
     color: var(--primary-color);
     margin-bottom: 20px;
     text-align: center;
+    width: 100%;
+    display: flex; /* Para alinhar o título com o ícone de ajuda */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaço entre o título e o ícone de ajuda */
 }
+
+/* Estilo para o ícone de ajuda do gráfico */
+.chart-tooltip-icon {
+    font-size: 0.8em; /* Tamanho do ícone de interrogação */
+    color: var(--secondary-color);
+    cursor: help; /* Muda o cursor para indicar ajuda */
+    position: relative; /* Para o posicionamento do tooltip box */
+    display: inline-block; /* Garante que o ícone tenha um contêiner adequado para o hover */
+}
+
+.chart-tooltip-box {
+    visibility: hidden;
+    width: 200px; /* Largura fixa para o tooltip */
+    background-color: var(--dark-card-bg); /* Fundo escuro para o tooltip */
+    color: var(--dark-text); /* Texto claro no tooltip */
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 100; /* Garante que o tooltip fique por cima de outros elementos */
+    bottom: calc(100% + 10px); /* Posiciona acima do ícone */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 2px 10px var(--shadow-color); /* Sombra para o tooltip */
+    font-size: 0.85em;
+}
+
+.chart-tooltip-icon:hover .chart-tooltip-box {
+    visibility: visible;
+    opacity: 1;
+}
+/* Seta do Tooltip */
+.chart-tooltip-box::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* Na parte de baixo */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--dark-card-bg) transparent transparent transparent;
+}
+
 
 .chart-container canvas {
     max-height: 300px;
     width: 100% !important;
     height: 100% !important;
+    flex-grow: 1;
 }
 
 /* Banner de alerta */
@@ -539,6 +631,38 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Widgets de Insights */
+.insight-widgets-container {
+    grid-column: 2 / 3; /* Ocupa a coluna principal */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 ou mais colunas */
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.insight-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.insight-card .icon-check {
+    color: var(--success-color); /* Cor do checkmark */
+    font-size: 1.8em;
+}
+
+.insight-card p {
+    font-size: 0.95em;
+    color: var(--text-color);
+    flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+}
+
 /* Responsividade */
 @media (max-width: 992px) {
     #dashboard-container {
@@ -552,7 +676,8 @@ header {
 
     #kpi-quantidade,
     #kpi-area-main,
-    .chart-grid {
+    .chart-grid,
+    .insight-widgets-container { /* Adicionado o contêiner de insights */
         grid-column: 1 / -1;
     }
     
@@ -573,8 +698,13 @@ header {
         justify-content: center;
     }
 
-    .upload-card, .uploaded-sheets-area {
+    .upload-card {
         max-width: 90%;
+    }
+
+    .chart-grid {
+        overflow-x: auto; 
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     }
 }
 
@@ -613,5 +743,9 @@ header {
     .theme-selector button {
         padding: 6px 10px;
         font-size: 0.8em;
+    }
+
+    .insight-widgets-container {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
     }
 }
